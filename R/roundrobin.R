@@ -5,8 +5,7 @@ roundrobin <- function(data, key){
     dplyr::rename(key = key) %>%
     dplyr::group_nest(key)
 
-  data_nest$key %>%
-    base::expand.grid(., .) %>%
+  base::expand.grid(data_nest$key, data_nest$key) %>%
     tibble::as_tibble() %>%
     dplyr::left_join(data_nest %>% dplyr::rename(Var1 = key),
                      by = "Var1")%>%

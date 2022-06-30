@@ -2,12 +2,14 @@ Package: roundrobin
 Type: Package
 Title: roundrobin
 Version: 0.0.1
-Author: kilometer00
+Authors@R: person("Koki", "Mimura", role = c("aut", "cre"), email = "kilometer00@gmail.com")
 Description: Transform a data.frame or tibble into a wide form of a round-robin combination of a particular key column.
 License: CC0
 Encoding: UTF-8
 LazyData: true
 Suggests:
-  magrittr,
-  dplyr,
-  tibble
+    dplyr,
+    tibble
+RoxygenNote: 7.1.1
+Imports: 
+    magrittr
