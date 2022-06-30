@@ -1,0 +1,13 @@
+Package: roundrobin
+Type: Package
+Title: roundrobin
+Version: 0.0.1
+Author: kilometer00
+Description: Transform a data.frame or tibble into a wide form of a round-robin combination of a particular key column.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Suggests:
+  magrittr,
+  dplyr,
+  tibble
