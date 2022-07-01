@@ -65,11 +65,11 @@ roundrobin::roundrobin(InsectSprays, key = "spray")
 ## # … with 26 more rows
 ```
 
-You can't use NSE for the `key` parameter.
+You can't use NSE for the `key`; this will be error
 
 ```r
 roundrobin::roundrobin(InsectSprays, key = spray)
 ```
 
-this will be error
+
 
