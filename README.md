@@ -24,20 +24,6 @@ devtools::install_github("kilometer0101/roundrobin")
 
 
 ```r
-head(InsectSprays)
-```
-
-```
-##   count spray
-## 1    10     A
-## 2     7     A
-## 3    20     A
-## 4    14     A
-## 5    14     A
-## 6    12     A
-```
-
-```r
 str(InsectSprays)
 ```
 
