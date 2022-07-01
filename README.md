@@ -64,3 +64,12 @@ roundrobin::roundrobin(InsectSprays, key = "spray")
 ## 10 D     B               [12 × 1]           [12 × 1]
 ## # … with 26 more rows
 ```
+
+You can't use NSE for the `key` parameter.
+
+```r
+roundrobin::roundrobin(InsectSprays, key = spray)
+```
+
+this will be error
+
