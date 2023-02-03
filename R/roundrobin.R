@@ -5,6 +5,7 @@
 #' @importFrom tibble as_tibble
 #' @param data target data.frame or tibble
 #' @param key target key for combination calcuration
+#' @param unclass whether to make them a unique pair or not
 #' @export
 roundrobin <- function(data, key, unclass = FALSE){
   data_nest <-
@@ -13,12 +14,12 @@ roundrobin <- function(data, key, unclass = FALSE){
     dplyr::group_nest(key)
 
   grid <-
-    base::expand.grid(data_nest$key, data_nest$key)
+    base::expand.grid(Var1 = data_nest$key, Var2 = data_nest$key)
 
-  if(unclass){
+  if(unclass == TRUE){
     grid <-
       grid %>%
-      subset(unclass(Var1) < unclass(Var2))
+      base::subset(base::unclass(Var1) < base::unclass(Var2))
   }
 
   grid %>%
