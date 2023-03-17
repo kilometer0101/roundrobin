@@ -5,9 +5,13 @@
 #' @importFrom tibble as_tibble
 #' @param data target data.frame or tibble
 #' @param key target key for combination calcuration
-#' @param unclass whether to make them a unique pair or not
+#' @param combination whether to make them a unique pair or not
+#' @param rename whether to rename Var columns
 #' @export
-roundrobin <- function(data, key, unclass = FALSE, rename = TRUE){
+roundrobin <-
+  function(data, key,
+           combination = FALSE,
+           rename = TRUE){
   data_nest <-
     data %>%
     dplyr::rename(key = key) %>%
@@ -16,7 +20,7 @@ roundrobin <- function(data, key, unclass = FALSE, rename = TRUE){
   grid <-
     base::expand.grid(Var1 = data_nest$key, Var2 = data_nest$key)
 
-  if(unclass == TRUE){
+  if(combination == TRUE){
     grid <-
       grid %>%
       base::subset(base::unclass(Var1) < base::unclass(Var2))
