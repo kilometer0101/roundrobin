@@ -1,5 +1,13 @@
-# roundrobin package
-by kilometer
+---
+title: "roundrobin package"
+author: by kilometer
+output: 
+  html_document:
+    keep_md: TRUE
+---
+
+
+
 
 ## Install
 
@@ -43,6 +51,8 @@ dplyr::group_nest(InsectSprays, spray)
 
 ### Use roundrobin function
 
+- roundrobin
+
 
 ```r
 roundrobin::roundrobin(InsectSprays, key = "spray")
@@ -50,26 +60,45 @@ roundrobin::roundrobin(InsectSprays, key = "spray")
 
 ```
 ## # A tibble: 36 × 4
-##    Var1  Var2              data.x             data.y
-##    <fct> <fct> <list<tibble[,1]>> <list<tibble[,1]>>
-##  1 A     A               [12 × 1]           [12 × 1]
-##  2 B     A               [12 × 1]           [12 × 1]
-##  3 C     A               [12 × 1]           [12 × 1]
-##  4 D     A               [12 × 1]           [12 × 1]
-##  5 E     A               [12 × 1]           [12 × 1]
-##  6 F     A               [12 × 1]           [12 × 1]
-##  7 A     B               [12 × 1]           [12 × 1]
-##  8 B     B               [12 × 1]           [12 × 1]
-##  9 C     B               [12 × 1]           [12 × 1]
-## 10 D     B               [12 × 1]           [12 × 1]
+##    spray.x spray.y             data.x             data.y
+##    <fct>   <fct>   <list<tibble[,1]>> <list<tibble[,1]>>
+##  1 A       A                 [12 × 1]           [12 × 1]
+##  2 B       A                 [12 × 1]           [12 × 1]
+##  3 C       A                 [12 × 1]           [12 × 1]
+##  4 D       A                 [12 × 1]           [12 × 1]
+##  5 E       A                 [12 × 1]           [12 × 1]
+##  6 F       A                 [12 × 1]           [12 × 1]
+##  7 A       B                 [12 × 1]           [12 × 1]
+##  8 B       B                 [12 × 1]           [12 × 1]
+##  9 C       B                 [12 × 1]           [12 × 1]
+## 10 D       B                 [12 × 1]           [12 × 1]
 ## # … with 26 more rows
 ```
 
-You can't use NSE for the `key`; this code will result in an error.
+- combination
+
 
 ```r
-roundrobin::roundrobin(InsectSprays, key = spray)
+roundrobin::roundrobin(InsectSprays, key = "spray", combination = TRUE)
 ```
 
-
-
+```
+## # A tibble: 15 × 4
+##    spray.x spray.y             data.x             data.y
+##    <fct>   <fct>   <list<tibble[,1]>> <list<tibble[,1]>>
+##  1 A       B                 [12 × 1]           [12 × 1]
+##  2 A       C                 [12 × 1]           [12 × 1]
+##  3 B       C                 [12 × 1]           [12 × 1]
+##  4 A       D                 [12 × 1]           [12 × 1]
+##  5 B       D                 [12 × 1]           [12 × 1]
+##  6 C       D                 [12 × 1]           [12 × 1]
+##  7 A       E                 [12 × 1]           [12 × 1]
+##  8 B       E                 [12 × 1]           [12 × 1]
+##  9 C       E                 [12 × 1]           [12 × 1]
+## 10 D       E                 [12 × 1]           [12 × 1]
+## 11 A       F                 [12 × 1]           [12 × 1]
+## 12 B       F                 [12 × 1]           [12 × 1]
+## 13 C       F                 [12 × 1]           [12 × 1]
+## 14 D       F                 [12 × 1]           [12 × 1]
+## 15 E       F                 [12 × 1]           [12 × 1]
+```

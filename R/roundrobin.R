@@ -2,7 +2,10 @@
 #' @importFrom dplyr rename
 #' @importFrom dplyr group_nest
 #' @importFrom dplyr left_join
+#' @importFrom rlang "!!"
+#' @importFrom rlang ":="
 #' @importFrom tibble as_tibble
+#' @importFrom stringr str_c
 #' @param data target data.frame or tibble
 #' @param key target key for combination calcuration
 #' @param combination whether to make them a unique pair or not
@@ -37,13 +40,13 @@ roundrobin <-
 
 
   if(rename == TRUE){
-    tag_x <- str_c(key, ".x")
-    tag_y <- str_c(key, ".y")
+    tag_x <- stringr::str_c(key, ".x")
+    tag_y <- stringr::str_c(key, ".y")
 
     result <-
       result %>%
-      rename(!!tag_x := Var1) %>%
-      rename(!!tag_y := Var2)
+      dplyr::rename(!!tag_x := "Var1") %>%
+      dplyr::rename(!!tag_y := "Var2")
   }
 
   return(result)

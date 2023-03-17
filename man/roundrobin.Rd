@@ -4,12 +4,16 @@
 \alias{roundrobin}
 \title{Transform a data.frame or tibble into a wide form of a round-robin combination of a particular key column.}
 \usage{
-roundrobin(data, key)
+roundrobin(data, key, combination = FALSE, rename = TRUE)
 }
 \arguments{
 \item{data}{target data.frame or tibble}
 
 \item{key}{target key for combination calcuration}
+
+\item{combination}{whether to make them a unique pair or not}
+
+\item{rename}{whether to rename Var columns}
 }
 \description{
 Transform a data.frame or tibble into a wide form of a round-robin combination of a particular key column.
