@@ -1,7 +1,7 @@
 Package: roundrobin
 Type: Package
 Title: roundrobin
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: person("Koki", "Mimura", role = c("aut", "cre"), email = "kilometer00@gmail.com")
 Description: Transform a data.frame or tibble into a wide form of a round-robin combination of a particular key column.
 License: CC0
@@ -14,3 +14,6 @@ Imports:
     tibble,
     stringr,
     rlang
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

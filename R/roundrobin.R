@@ -21,7 +21,10 @@ roundrobin <-
     dplyr::group_nest(key)
 
   grid <-
-    base::expand.grid(Var1 = data_nest$key, Var2 = data_nest$key)
+    base::expand.grid(
+      Var1 = data_nest$key,
+      Var2 = data_nest$key
+      )
 
   if(combination == TRUE){
     grid <-
@@ -33,10 +36,12 @@ roundrobin <-
   result <-
     grid %>%
     tibble::as_tibble() %>%
-    dplyr::left_join(data_nest %>% dplyr::rename(Var1 = key),
-                     by = "Var1") %>%
-    dplyr::left_join(data_nest %>% dplyr::rename(Var2 = key),
-                     by = "Var2")
+    dplyr::left_join(
+      data_nest %>% dplyr::rename(Var1 = key),
+      by = "Var1") %>%
+    dplyr::left_join(
+      data_nest %>% dplyr::rename(Var2 = key),
+      by = "Var2")
 
 
   if(rename == TRUE){
@@ -45,8 +50,10 @@ roundrobin <-
 
     result <-
       result %>%
-      dplyr::rename(!!tag_x := "Var1") %>%
-      dplyr::rename(!!tag_y := "Var2")
+      dplyr::rename({{ tag_x }} := "Var1") %>%
+      dplyr::rename({{ tag_x }} := "Var2")
+##      dplyr::rename(!!tag_x := "Var1") %>%
+##      dplyr::rename(!!tag_y := "Var2")
   }
 
   return(result)
