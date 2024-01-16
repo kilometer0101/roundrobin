@@ -14,7 +14,6 @@ roundrobin <- function(df, key, combination = FALSE){
   grid <-
     mygrid(df_nest, combination = combination)
 
-
   df_rr <-
     grid %>%
     dplyr::left_join(
