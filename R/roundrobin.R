@@ -8,11 +8,12 @@
 #' @param combination whether to make them a unique pair or not
 #' @export
 roundrobin <- function(df, key, combination = FALSE){
-  grid <-
-    mygrid(df, {{ key }}, combination = combination)
-
   df_nest <-
     mynest(df, {{ key }})
+
+  grid <-
+    mygrid(df_nest, combination = combination)
+
 
   df_rr <-
     grid %>%
@@ -45,12 +46,8 @@ mynest <- function(df, key){
 #' make grid for rr
 #' @importFrom tibble as_tibble
 #' @param df target data.frame or tibble
-#' @param key target key for combination calculation
 #' @param combination whether to make them a unique pair or not
-mygrid <- function(df, key, combination = FALSE){
-  df_nest <-
-    mynest(df, key = {{ key }})
-
+mygrid <- function(df_nest, combination = FALSE){
   grid <-
     base::expand.grid(Var1 = df_nest$key, Var2 = df_nest$key)
 
